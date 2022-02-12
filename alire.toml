@@ -1,6 +1,6 @@
 name = "itsybitsy_bsp"
 description = "Board support package for Arduino ItsyBitsy"
-version = "0.0.1"
+version = "0.0.2"
 licenses = "BSD-3-Clause"
 
 authors = ["Holger Rodriguez"]
