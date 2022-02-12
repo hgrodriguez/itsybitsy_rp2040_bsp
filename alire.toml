@@ -16,6 +16,3 @@ rp2040_hal = "^1"  # Added by alr
 
 [configuration.values]
 rp2040_hal.Flash_Chip = "w25qxx"
-
-[[pins]]  # Added by alr
-rp2040_hal = { url='https://github.com/JeremyGrosser/rp2040_hal' }   # Added by alr
