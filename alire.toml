@@ -1,13 +1,13 @@
 name = "itsybitsy_bsp"
 description = "Board support package for Arduino ItsyBitsy"
-version = "0.0.4"
+version = "0.0.5"
 licenses = "BSD-3-Clause"
 
 authors = ["Holger Rodriguez"]
 maintainers = ["Holger Rodriguez <github@roseng.ch>"]
 maintainers-logins = ["hgrodriguez"]
 tags = ["embedded", "nostd", "itsybitsy", "rp2040", "bsp"]
-website = "https://pico-doc.synack.me/"
+website = "https://github.com/hgrodriguez/itsybitsy_bsp"
 
 [[depends-on]]  # Added by alr
 hal = "~0.1"  # Added by alr
