@@ -1,12 +1,12 @@
-with "config/itsybitsy_bsp_config.gpr";
+with "config/itsybitsy_rp2040_bsp_config.gpr";
 with "rp2040_hal.gpr";
-project Itsybitsy_Bsp is
+project Itsybitsy_Rp2040_Bsp is
 
    for Runtime ("Ada") use "zfp-cortex-m0p";
    for Target use "arm-eabi";
 
-   for Library_Name use "itsybitsy_bsp";
-   for Library_Version use Project'Library_Name & ".so." & Itsybitsy_Bsp_Config.Crate_Version;
+   for Library_Name use "itsybitsy_rp2040_bsp";
+   for Library_Version use Project'Library_Name & ".so." & Itsybitsy_Rp2040_Bsp_Config.Crate_Version;
 
    for Source_Dirs use ("src");
    for Object_Dir use "obj";
@@ -15,17 +15,17 @@ project Itsybitsy_Bsp is
 
    type Library_Type_Type is ("relocatable", "static", "static-pic");
    Library_Type : Library_Type_Type :=
-     external ("ITSYBITSY_BSP_LIBRARY_TYPE", external ("LIBRARY_TYPE", "static"));
+     external ("ITSYBITSY_RP2040_BSP_LIBRARY_TYPE", external ("LIBRARY_TYPE", "static"));
    for Library_Kind use Library_Type;
 
    type Enabled_Kind is ("enabled", "disabled");
-   Compile_Checks : Enabled_Kind := External ("ITSYBITSY_BSP_COMPILE_CHECKS", "enabled");
-   Runtime_Checks : Enabled_Kind := External ("ITSYBITSY_BSP_RUNTIME_CHECKS", "enabled");
-   Style_Checks : Enabled_Kind := External ("ITSYBITSY_BSP_STYLE_CHECKS", "enabled");
-   Contracts_Checks : Enabled_Kind := External ("ITSYBITSY_BSP_CONTRACTS", "enabled");
+   Compile_Checks : Enabled_Kind := External ("ITSYBITSY_RP2040_BSP_COMPILE_CHECKS", "enabled");
+   Runtime_Checks : Enabled_Kind := External ("ITSYBITSY_RP2040_BSP_RUNTIME_CHECKS", "enabled");
+   Style_Checks : Enabled_Kind := External ("ITSYBITSY_RP2040_BSP_STYLE_CHECKS", "enabled");
+   Contracts_Checks : Enabled_Kind := External ("ITSYBITSY_RP2040_BSP_CONTRACTS", "enabled");
 
    type Build_Kind is ("debug", "optimize");
-   Build_Mode : Build_Kind := External ("ITSYBITSY_BSP_BUILD_MODE", "optimize");
+   Build_Mode : Build_Kind := External ("ITSYBITSY_RP2040_BSP_BUILD_MODE", "optimize");
 
    Compile_Checks_Switches := ();
    case Compile_Checks is
@@ -88,4 +88,4 @@ project Itsybitsy_Bsp is
          "-fdata-sections");    -- Separate ELF section for each variable
    end Compiler;
 
-end Itsybitsy_Bsp;
+end Itsybitsy_Rp2040_Bsp;
