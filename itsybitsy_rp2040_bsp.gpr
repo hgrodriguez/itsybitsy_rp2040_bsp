@@ -1,17 +1,22 @@
 with "config/itsybitsy_rp2040_bsp_config.gpr";
 with "rp2040_hal.gpr";
+
 project Itsybitsy_Rp2040_Bsp is
 
-   for Runtime ("Ada") use "zfp-cortex-m0p";
+   for Runtime ("Ada") use "light-cortex-m0p";
    for Target use "arm-eabi";
 
+   for Languages use ("Ada");
+   for Source_Dirs use ("src");
+
    for Library_Name use "itsybitsy_rp2040_bsp";
+   for Library_Dir use "lib";
    for Library_Version use Project'Library_Name & ".so." & Itsybitsy_Rp2040_Bsp_Config.Crate_Version;
 
-   for Source_Dirs use ("src");
    for Object_Dir use "obj";
    for Create_Missing_Dirs use "True";
-   for Library_Dir use "lib";
+
+   Linker_Switches := RP2040_HAL.Linker_Switches;
 
    type Library_Type_Type is ("relocatable", "static", "static-pic");
    Library_Type : Library_Type_Type :=

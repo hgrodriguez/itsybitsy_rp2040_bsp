@@ -103,7 +103,7 @@ package ItsyBitsy is
    LED  : RP.GPIO.GPIO_Point renames D13;
 
    SPI  : RP.SPI.SPI_Port renames RP.Device.SPI_0;
-   I2C  : RP.I2C_Master.I2C_Master_Port renames RP.Device.I2C_1;
+   I2C  : RP.I2C_Master.I2C_Master_Port renames RP.Device.I2CM_1;
    UART : RP.UART.UART_Port renames RP.Device.UART_0;
 
 end ItsyBitsy;
